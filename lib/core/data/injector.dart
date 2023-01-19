@@ -9,8 +9,8 @@ GetIt getIt = GetIt.instance;
 
 @InjectableInit(preferRelativeImports: false)
 Future<void> configure(String environment) async {
-  if (Platform.isIOS || Platform.isAndroid) {
-    await Firebase.initializeApp();
-  }
+  // if (Platform.isIOS || Platform.isAndroid) {
+  //   await Firebase.initializeApp();
+  // }
   getIt.init(environment: environment);
 }
