@@ -5,9 +5,11 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:flutter_cartelera/core/data/config/config.dart' as _i8;
-import 'package:flutter_cartelera/core/data/injectable_module.dart' as _i9;
+import 'package:flutter_cartelera/core/data/config/config.dart' as _i9;
+import 'package:flutter_cartelera/core/data/injectable_module.dart' as _i10;
 import 'package:flutter_cartelera/core/domain/services/app_api.dart' as _i3;
+import 'package:flutter_cartelera/feature/home/domain/presentation/cubit/cubit_upcoming_movies/upcoming_movies_cubit.dart'
+    as _i8;
 import 'package:flutter_cartelera/feature/home/domain/presentation/cubit/trending_movies_cubit/trending_movies_cubit.dart'
     as _i7;
 import 'package:flutter_cartelera/feature/home/domain/repositories/movies_repository.dart'
@@ -43,12 +45,14 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i6.MoviesUseCaseImpl(gh<_i5.MoviesRepository>()));
     gh.factory<_i7.TrendingMoviesCubit>(
         () => _i7.TrendingMoviesCubit(gh<_i6.MoviesUseCase>()));
+    gh.factory<_i8.UpcomingMoviesCubit>(
+        () => _i8.UpcomingMoviesCubit(gh<_i6.MoviesUseCase>()));
     return this;
   }
 }
 
-class _$RegisterApi extends _i8.RegisterApi {}
+class _$RegisterApi extends _i9.RegisterApi {}
 
-class _$RegisterRepositories extends _i8.RegisterRepositories {}
+class _$RegisterRepositories extends _i9.RegisterRepositories {}
 
-class _$InjectableModule extends _i9.InjectableModule {}
+class _$InjectableModule extends _i10.InjectableModule {}

@@ -3,6 +3,8 @@ import 'package:flutter_cartelera/feature/home/domain/models/trending_movies.dar
 import 'package:flutter_cartelera/feature/home/domain/repositories/movies_repository.dart';
 import 'package:flutter_cartelera/feature/home/domain/services/movies_api.dart';
 
+import '../../domain/models/upcoming_movies.dart';
+
 class MoviesRepositoryImpl implements MoviesRepository {
   MoviesRepositoryImpl(this._api);
 
@@ -11,6 +13,14 @@ class MoviesRepositoryImpl implements MoviesRepository {
   @override
   Future<TrendingMovies?> getTrendingMovies() async {
     final apiResult = await _api.getTrendingMovies();
+    return apiResult.when(
+        success: (data) => data,
+        failure: (statusCode, errors) => throw SubmitError(statusCode, errors));
+  }
+
+  @override
+  Future<UpcomingMovies?> getUpcomingMovies() async {
+    final apiResult = await _api.getUpcomingMovies();
     return apiResult.when(
         success: (data) => data,
         failure: (statusCode, errors) => throw SubmitError(statusCode, errors));

@@ -2,18 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 
-import '../cubit/cubit_upcoming_movies/upcoming_movies_cubit.dart';
-import 'card_upcoming_movies.dart';
+import '../cubit/trending_movies_cubit/trending_movies_cubit.dart';
+import 'card_movie.dart';
 
-class UpcomingMovies extends StatelessWidget {
-  const UpcomingMovies({super.key});
+class TrendingMovies extends StatelessWidget {
+  const TrendingMovies({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) =>
-          GetIt.I.get<UpcomingMoviesCubit>()..getUpcomingMovies(),
-      child: BlocBuilder<UpcomingMoviesCubit, UpcomingMoviesState>(
+          GetIt.I.get<TrendingMoviesCubit>()..getTrendingMovies(),
+      child: BlocBuilder<TrendingMoviesCubit, TrendingMoviesState>(
         builder: (context, state) {
           return Column(
             children: [
@@ -23,7 +23,7 @@ class UpcomingMovies extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: const [
                     Text(
-                      'Upcoming Movies',
+                      'Trending Movies',
                       style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.w500,
@@ -42,15 +42,16 @@ class UpcomingMovies extends StatelessWidget {
               ),
               const SizedBox(height: 15),
               SizedBox(
-                height: 250,
+                height: 400,
                 width: MediaQuery.of(context).size.width.round() * 0.95,
                 child: ListView.builder(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,
-                  itemCount: state.upcomingMovies.length,
+                  itemCount: state.movies.length,
                   itemBuilder: (context, index) {
-                    return UpcomingCard(
-                      movie: state.upcomingMovies[index],
+                    final movie = state.movies[index];
+                    return CardMovie(
+                      movie: state.movies[index],
                     );
                   },
                 ),

@@ -14,6 +14,7 @@ class TrendingMoviesCubit extends Cubit<TrendingMoviesState> {
 
   final MoviesUseCase _moviesUseCase;
 
+  @injectable
   Future<void> getTrendingMovies() async {
     emit(TrendingMoviesState.loading());
     try {
