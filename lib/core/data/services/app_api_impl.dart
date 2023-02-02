@@ -4,6 +4,9 @@ import 'package:flutter_cartelera/core/domain/services/app_api.dart';
 import 'package:flutter_cartelera/feature/home/data/services/movies_api_impl.dart';
 import 'package:flutter_cartelera/feature/home/domain/services/movies_api.dart';
 
+import '../../../feature/details/data/services/movies_api.dart';
+import '../../../feature/details/domain/service/movies_api.dart';
+
 class AppApiImpl implements AppApi {
   AppApiImpl() {
     Client.instance.init(
@@ -13,4 +16,6 @@ class AppApiImpl implements AppApi {
 
   @override
   MoviesApi get movieApi => MoviesApiImpl();
+  @override
+  MovieApi get movieapi => MovieApiImpl();
 }

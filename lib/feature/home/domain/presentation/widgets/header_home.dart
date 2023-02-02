@@ -42,7 +42,7 @@ class HeaderHome extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(50),
               child: Image.network(
-                'https://laverdadnoticias.com/__export/1655819964975/sites/laverdad/img/2022/06/21/spy_x_family_viral_anya_forger_con_rasgos_biologicos_de_loid_y_yor.jpeg_1899857922.jpeg',
+                'https://i.pinimg.com/236x/13/31/93/13319375e7c6ea039e6d6eacb91bac2b.jpg',
                 height: 50,
                 width: 50,
               ),

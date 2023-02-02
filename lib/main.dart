@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_cartelera/core/data/injector.dart';
 import 'package:flutter_cartelera/feature/home/domain/presentation/home_page.dart';
 
+import 'feature/details/domain/presentation/detail_page.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await configure('dev');
@@ -13,10 +15,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Material App',
-      home: HomePage(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => const HomePage(),
+        'details': (context) => const DetailsPage(),
+      },
     );
   }
 }

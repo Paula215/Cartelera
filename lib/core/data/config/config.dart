@@ -7,6 +7,10 @@ import 'package:flutter_cartelera/feature/home/data/repositories/movies_reposito
 import 'package:flutter_cartelera/feature/home/domain/repositories/movies_repository.dart';
 import 'package:flutter_cartelera/feature/home/domain/services/movies_api.dart';
 
+import '../../../feature/details/data/repositories/movies_repository_impl.dart';
+import '../../../feature/details/domain/repositories/movies_repository.dart';
+import '../../../feature/details/domain/service/movies_api.dart';
+
 @module
 abstract class RegisterApi {
   @lazySingleton
@@ -18,4 +22,7 @@ abstract class RegisterRepositories {
   @lazySingleton
   MoviesRepository moviesRepository() =>
       MoviesRepositoryImpl(GetIt.I.get<MoviesApi>());
+  @lazySingleton
+  MovieRepository movieRepository() =>
+      MovieRepositoryImpl(GetIt.I.get<MovieApi>());
 }

@@ -13,7 +13,7 @@ class CardMovie extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        //Navigator.pushNamed(context, '/details', arguments: movie.id);
+        Navigator.pushNamed(context, 'details', arguments: movie.id);
       },
       child: Container(
         width: 190,
