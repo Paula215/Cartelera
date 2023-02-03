@@ -15,11 +15,11 @@ class MovieIdCubit extends Cubit<MovieIdState> {
   Future<void> getMovie(String id) async {
     emit(MovieIdState.loading());
     try {
-      // final video = await _movieUseCase.getTrailer(id);
+      final videoresponse = await _movieUseCase.getTrailer(id);
       final movieid = await _movieUseCase.getMovieid(id);
-
-      final url =
-          'https://www.youtube.com/watch?v=NRdoMn-v8b4&list=RDNRdoMn-v8b4&start_radio=1';
+      final idyutu = videoresponse?.results[0].key;
+      final url = 'https://www.youtube.com/watch?v=$idyutu';
+      print(idyutu);
 
       emit(MovieIdState.sucessfull(movieid, url));
     } on ApiError catch (_) {

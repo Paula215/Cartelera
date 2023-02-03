@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cartelera/feature/details/domain/presentation/widgets/button_play.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class DetailsHeader extends StatelessWidget {
   const DetailsHeader({
@@ -65,9 +66,9 @@ class DetailsHeader extends StatelessWidget {
               ),
               ButtonPlay(
                 onTap: () async {
-                  // if (!await launchUrl(_url)) {
-                  //   throw 'Could not launch $_url';
-                  // }
+                  if (!await launchUrl(_url)) {
+                    throw 'Could not launch $_url';
+                  }
                 },
               )
             ],

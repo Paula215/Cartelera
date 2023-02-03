@@ -1,4 +1,5 @@
 import 'package:flutter_cartelera/core/domain/model/api_error.dart';
+import 'package:flutter_cartelera/feature/details/domain/models/trailer.dart';
 import 'package:flutter_cartelera/feature/details/domain/service/movies_api.dart';
 
 import '../../domain/models/movieid.dart';
@@ -18,7 +19,7 @@ class MovieRepositoryImpl implements MovieRepository {
   }
 
   @override
-  Future<Movieid?> getTrailer(String id) async {
+  Future<Trailer?> getTrailer(String id) async {
     final apiResult = await _api.getTrailer(id);
     return apiResult.when(
         success: (data) => data,

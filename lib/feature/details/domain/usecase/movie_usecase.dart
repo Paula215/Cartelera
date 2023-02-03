@@ -1,3 +1,4 @@
+import 'package:flutter_cartelera/feature/details/domain/models/trailer.dart';
 import 'package:injectable/injectable.dart';
 
 import '../models/movieid.dart';
@@ -5,7 +6,7 @@ import '../repositories/movies_repository.dart';
 
 abstract class MovieidUseCase {
   Future<Movieid?> getMovieid(String id);
-  Future<Movieid?> getTrailer(String id);
+  Future<Trailer?> getTrailer(String id);
 }
 
 @Injectable(as: MovieidUseCase)
@@ -17,5 +18,5 @@ class MovieidUseCaseImpl implements MovieidUseCase {
   @override
   Future<Movieid?> getMovieid(String id) => _repository.getMovieid(id);
   @override
-  Future<Movieid?> getTrailer(String id) => _repository.getTrailer(id);
+  Future<Trailer?> getTrailer(String id) => _repository.getTrailer(id);
 }

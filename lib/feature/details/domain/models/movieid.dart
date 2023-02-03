@@ -117,7 +117,7 @@ class Movieid extends Equatable {
   bool get stringify => true;
 
   factory Movieid.fromJson(Map<String, dynamic> json) => Movieid(
-        adult: json["adult"],
+        adult: json["adult"] ?? false,
         backdropPath: json["backdrop_path"],
         belongsToCollection: json["belongs_to_collection"],
         budget: json["budget"],
